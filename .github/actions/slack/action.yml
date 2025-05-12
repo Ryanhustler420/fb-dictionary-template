@@ -1,0 +1,26 @@
+name: Slack Messanger
+description: "Slack message sender composite action"
+inputs:
+  webhook_url:
+    description: Provide the webhook url of the chennel where the message will be sent.
+    required: true
+  payload:
+    description: Provide the text you want to send.
+    default: "A dummy message"
+    required: true
+outputs:
+  outcome:
+    description: Return true if the message successfully sent. else false
+    value: ${{ steps.sender.outcome }}
+runs:
+  using: "composite"
+  steps:
+    - name: Slack Messaging
+      id: sender
+      env:
+        SLACK_WEBHOOK_URL: ${{ inputs.webhook_url }}
+      uses: slackapi/slack-github-action@v1.24.0
+      with:
+        # payload-file-path: "./payload-slack-content.json"
+        payload: |
+          { "text": "${{ inputs.payload }}" }

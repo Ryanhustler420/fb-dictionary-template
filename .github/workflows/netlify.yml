@@ -1,0 +1,35 @@
+name: netlify
+env: { ENV: nelify }
+on:
+  workflow_dispatch:
+  # push:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      NAME: deploy
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v3
+      - name: Set up Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: Running Sever
+        run: |
+          nohup deno run --allow-all \
+          server/index.ts &
+        # ps & kill $pid
+      - name: Get tailwindcss
+        run: npm install -D @tailwindcss/cli@latest
+      - name: Build Tailwind CSS
+        run: npm run build-css
+      - name: Deploying on netlify
+        uses: ./.github/actions/netlify
+        with:
+          dir: "."
+          branch: ${{ github.ref_name }}
+          site-id: ${{ secrets.WF_NETLIFY_SITE_ID }}
+          auth-token: ${{ secrets.WF_NETLIFY_AUTH_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}

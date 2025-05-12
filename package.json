@@ -1,0 +1,20 @@
+{
+  "name": "title",
+  "version": "1.0.0",
+  "description": "- WF_NETLIFY_SITE_ID: xxxx-xxx-xxx-xxxx-xxxxxxx - WF_NETLIFY_AUTH_TOKEN: nfp_xxx",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "npx @tailwindcss/cli -i ./public/input.css -o ./public/output.css --minify",
+    "watch-css": "npx @tailwindcss/cli -i ./public/input.css -o ./public/output.css --watch",
+    "tailwind-init": "npx tailwindcss-cli@latest init -p"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.4",
+    "tailwindcss-cli": "^0.1.2"
+  }
+}

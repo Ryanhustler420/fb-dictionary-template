@@ -1,0 +1,44 @@
+name: Netlify Deployment
+description: "Help you to deploy the assets to netlify."
+inputs:
+  message:
+    description: "Provide a message for deployment"
+    default: "Deploy from GitHub"
+    required: false
+  branch:
+    description: "Provide a branch name"
+    default: "master"
+    required: false
+  dir:
+    description: "Your project directory path"
+    required: true
+  auth-token:
+    description: "Your netlify auth token secret"
+    required: true
+  site-id:
+    description: "Your netlify website id"
+    required: true
+  github-token:
+    description: "repository token"
+    required: true
+outputs:
+  is-deployed:
+    description: "Returns true if deployed successfully else false."
+    value: ${{ steps.deploy.outcome }}
+runs:
+  using: "composite"
+  steps:
+    - name: Deploy to Netlify
+      uses: nwtgck/actions-netlify@v2.0
+      id: deploy
+      with:
+        production-branch: ${{ inputs.branch }}
+        publish-dir: ${{ inputs.dir }}
+        deploy-message: ${{ inputs.message }}
+        github-token: ${{ inputs.github-token }}
+        overwrites-pull-request-comment: true
+        enable-pull-request-comment: false
+        enable-commit-comment: true
+      env:
+        NETLIFY_SITE_ID: ${{ inputs.site-id }}
+        NETLIFY_AUTH_TOKEN: ${{ inputs.auth-token }}

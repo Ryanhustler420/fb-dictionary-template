@@ -1,0 +1,16 @@
+{
+  "name": "Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu", 
+  "extensions": [
+    "ms-python.python",
+    "github.vscode-github-actions",
+    "ritwickdey.liveserver",
+    "denoland.vscode-deno"
+  ],
+  "postCreateCommand": "curl -fsSL https://deno.land/x/install/install.sh | sh",
+  "settings": {
+    "deno.enable": true,
+    "deno.unstable": true
+  },
+  "remoteUser": "vscode"
+}
