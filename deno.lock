@@ -1,0 +1,20 @@
+{
+  "version": "5",
+  "remote": {
+    "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js": "a56e2fadd73d861cb030f6e0001f5aceb4ecfa18f4c71c4149c072a05298ed64",
+    "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js": "b5e5b3e237e58718c614daa005c8b71a92689c92046126c1520b729dfc16f854",
+    "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js": "ea1fb0bbe77cb4fbd768f4a867df88df3bcb7f36914c7a77fa8d50a05af82c68",
+    "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js": "cf5a0633c224b1a838df9b92cba0a2943c27bc6aa8a5826aae8081b67a9cb5d7"
+  },
+  "workspace": {
+    "packageJson": {
+      "dependencies": [
+        "npm:@tailwindcss/cli@^4.1.4",
+        "npm:autoprefixer@^10.4.21",
+        "npm:postcss@^8.5.3",
+        "npm:tailwindcss-cli@~0.1.2",
+        "npm:tailwindcss@^4.1.4"
+      ]
+    }
+  }
+}
