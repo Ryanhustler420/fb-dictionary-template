@@ -24,10 +24,54 @@
 </head>
 
 <body>
-  <h1 class="text-4xl font-bold text-blue-600">Hello, Welcome to netlify template</h1>
-  <p class="mt-4 text-gray-700">You're developing with basic boilerplate</p>
 
+  <section id="splash" class="h-screen">
+    <div class="flex flex-col space-y-6 justify-center items-center h-full">
+      <img src="https://placehold.co/200" class="animate-pulse rounded-xl h-48 w-48" alt="Logo">
+      <strong class="text-2xl">Title</strong>
+    </div>
+  </section>
 
+  <section id="login" class="hidden h-screen">
+    <div class="flex flex-col space-y-6 justify-center items-center h-full">
+      <div class="flex rounded-lg">
+        <img class="rounded-l-lg h-28 w-28" src="https://placehold.co/200" alt="title">
+        <div class="flex flex-col border-y-2 border-r-2 rounded-r-lg bg-slate-100/50 justify-center px-5">
+          <h1 class="text-4xl font-bold">Title</h1>
+          <p class="text-2xl">Dictionary Application</p>
+        </div>
+      </div>
+      <div class="flex flex-col space-y-4 p-4 border-2 rounded-md w-2/6 h-3/8">
+        <input id="login-email-input" autocomplete="off" class="p-3 border-2 outline-red-500" type="email" placeholder="employee@title.com" name="email" />
+        <input id="login-password-input" autocomplete="off" class="p-3 border-2 outline-red-500" type="password" placeholder="*********" name="password" />
+        <input id="login-login-btn" class="p-3 border-2 outline-red-500 cursor-pointer" type="button" value="Login">
+        <p id="login-error-message" class="text-red-500 text-center">&nbsp;</p>
+        <p class="text-center">Title Inc&trade; - &copy; Company 202X</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dashboard" class="hidden h-screen">
+    <div class="flex flex-col space-y-6 justify-center items-center h-full">
+      <div class="flex rounded-lg">
+        <img class="rounded-l-lg h-28 w-28" src="https://placehold.co/100" alt="title">
+        <div class="flex flex-col border-y-2 border-r-2 rounded-r-lg bg-slate-100/50 justify-center px-5">
+          <h1 class="text-4xl font-bold">Title</h1>
+          <p id="dashboard-user-email" class="text-2xl">employee@title.com</p>
+        </div>
+      </div>
+      <div class="flex flex-col space-y-4 p-4 border-2 rounded-md md:w-3/6 w-2/6 h-3/8">
+        <input id="dashboard-word-input" autocomplete="off" class="p-3 border-2 outline-red-500 font-bold" type="text" placeholder="Word ?" name="word" />
+        <p id="dashboard-insert-message" class="text-green-500">Press "enter" to search.</p>
+        <p id="dashboard-error-message" class="hidden">Already inserted by <strong>email@title.com</strong> on 3rd May 2025</p>
+        <input id="dashboard-insert-btn" class="p-3 border-2 outline-red-500 cursor-pointer hidden" type="button" value="Insert">
+      </div>
+      <div class="flex flex-col space-y-4 p-4 rounded-md w-2/6 h-3/8">
+        <p class="text-center">Title Inc&trade; - &copy; Company 202X</p>
+        <button id="dashboard-logout-btn" class="text-red-500 cursor-pointer underline" type="button" tabindex="-1">Logout</button>
+      </div>
+    </div>
+  </section>
   
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script type="module" src="firebase/firebase.js"></script>

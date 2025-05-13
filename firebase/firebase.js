@@ -38,7 +38,7 @@ const ROOT = "dictionary";
 window.look = async function(stringKey) {
   const docRef = doc(db, ROOT, stringKey);
   const docSnap = await getDoc(docRef);
-  return docSnap.exists();
+  return docSnap.exists() ? docSnap.data() : null;
 };
 
 // Add a string to Firestore
